@@ -1,4 +1,4 @@
-package com.qa.openkart.exceptions;
+package com.qa.opencart.exceptions;
 
 public class BrowserExceptions extends RuntimeException{
 	

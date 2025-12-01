@@ -16,8 +16,8 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
-import com.qa.openkart.exceptions.BrowserExceptions;
-import com.qa.openkart.exceptions.FrameworkException;
+import com.qa.opencart.exceptions.BrowserExceptions;
+import com.qa.opencart.exceptions.FrameworkException;
 
 public class DriverFactory {
 	
