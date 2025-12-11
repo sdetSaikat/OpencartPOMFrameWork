@@ -61,7 +61,8 @@ public class AccountPage {
 	public SearchResultsPage doSearchProduct(String productName) {
 		
 		System.out.println("Searching for "+productName +"....");
-		eleutil.doSendKeys(searchFileld, productName);
+		eleutil.SendKeysWithWait(searchFileld, MAXXIMUM_TIMEOUT_TIME, productName);
+//		eleutil.doSendKeys(searchFileld, productName);
 		eleutil.doClick(searchIcon);
 		
 		
