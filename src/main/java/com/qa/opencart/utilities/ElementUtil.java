@@ -721,6 +721,7 @@ public class ElementUtil {
 	}
 
 	public void SendKeysWithWait(By locator, int timeout, CharSequence... value) {
+		getElement(locator).clear();
 		waitForElementVisibility(locator, timeout).sendKeys(value);
 	}
 
