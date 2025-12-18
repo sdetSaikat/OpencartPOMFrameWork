@@ -20,7 +20,7 @@ public class LoginPage {
 	private final By loginbtn = By.xpath("//input[@value = 'Login']");
 	private final By forgotPasswordLink = By.linkText("Forgotten Password");
 	private final By registerButton = By.xpath("//aside[@id='column-right']//a[text() = 'Register']");
-	
+	private final By logoutLinkInMyAccount = By.xpath("//aside[@id='column-right']//a[text()='Logout']");
 	
 	
 	public LoginPage(WebDriver driver) {
@@ -64,6 +64,7 @@ public class LoginPage {
 	@Step("Navigating to the registration page..")
 	public RegistrationPage doRegisterUserAccount() {
 		eleutil.ClickWithWait(registerButton, SHORT_TIMEOUT_TIME);
+		eleutil.waitForElementVisibility(logoutLinkInMyAccount, MEDIUM_TIMEOUT_TIME);
 		return new RegistrationPage(driver);
 		
 	}
