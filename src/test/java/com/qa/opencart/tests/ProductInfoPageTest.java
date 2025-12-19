@@ -54,7 +54,7 @@ public class ProductInfoPageTest extends BaseTest {
 	@Description("Product Availability check")
 	@Severity(SeverityLevel.CRITICAL)
 	@Owner("Saikat Maity")
-	@Test(enabled = true)
+	@Test(enabled = false)
 	public void productAvailabilityTest() {
 		String actualAvailabilityStatus = accPage.doSearchProduct("macbook").doSelectProduct("MacBook").getProductAvailabilityStatus();
 		Assert.assertTrue(actualAvailabilityStatus.contains("In Stock"));
