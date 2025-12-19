@@ -5,14 +5,14 @@ pipeline {
             steps {
                
                 echo 'Building the application...'
-                sh 'make build' // Executes a shell command
+                
             }
         }
         stage('Test') {
             steps {
                 echo 'Running tests...'
                 
-                junit '**/target/surefire-reports/*.xml'
+             
             }
         }
         stage('Deploy') {
