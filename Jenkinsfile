@@ -8,7 +8,7 @@ pipeline
 
     stages 
     {
-        stage('Build') 
+       /* stage('Build') 
         {
             steps
             {
@@ -19,12 +19,17 @@ pipeline
             {
                 success
                 {
-                    junit '**/target/surefire-reports/TEST-*.xml'
-                    archiveArtifacts 'target/*.jar'
+                    junit '*target/surefire-reports/TEST-*.xml'
+                    archiveArtifacts 'target.jar'
                 }
             }
-        }
+        }*/
         
+         stage('Build'){
+            steps{
+                echo("Build is completed")
+            }
+        }
         
         
         stage("Deploy to QA"){
