@@ -2,6 +2,7 @@ package com.qa.opencart.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import com.qa.opencart.utilities.ElementUtil;
 import com.qa.opencart.utilities.StringUtil;
@@ -52,7 +53,7 @@ public class RegistrationPage {
 	public boolean accountRegistration(String firstName,String lastName,String phoneNumber,
 										String password,String subscribeChoice) 
 	{
-		eleutil.SendKeysWithWait(userFirstName, SHORT_TIMEOUT_TIME, firstName);
+		eleutil.SendKeysWithWait(userFirstName, MEDIUM_TIMEOUT_TIME, firstName);
 		eleutil.doSendKeys(userLastName, lastName);
 		eleutil.doSendKeys(userEmail, StringUtil.getRandomEmail());
 		eleutil.doSendKeys(userTelephone, phoneNumber);
@@ -66,17 +67,22 @@ public class RegistrationPage {
 		}
 		eleutil.doClick(agreeCheckbox);
 		eleutil.doClick(loginButton);
+
 		
-		if (eleutil.waitForElementVisibility(successMsg, MEDIUM_TIMEOUT_TIME).getText()
+		WebElement successele = eleutil.waitForElementVisibility(successMsg, MEDIUM_TIMEOUT_TIME);
+		
+		if (successele.getText()
 				.contains(REGISTRATION_SUCCESS_MESSAGE)) {
-			eleutil.doClick(logout);
-			eleutil.doClick(register);
-			try {
-				Thread.sleep(4000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+//			eleutil.doClick(logout);
+			eleutil.ClickWithWait(logout, MEDIUM_TIMEOUT_TIME);
+			eleutil.ClickWithWait(register, MEDIUM_TIMEOUT_TIME);
+//			eleutil.doClick(register);
+//			try {
+//				Thread.sleep(4000);
+//			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
 			return true;
 		}
 		else {

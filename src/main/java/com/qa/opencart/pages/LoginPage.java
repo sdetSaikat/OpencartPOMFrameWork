@@ -22,6 +22,8 @@ public class LoginPage {
 	private final By registerButton = By.xpath("//aside[@id='column-right']//a[text() = 'Register']");
 	private final By logoutLinkInMyAccount = By.xpath("//aside[@id='column-right']//a[text()='Logout']");
 	
+	private final By registerMsg =By.cssSelector("#content > h1");
+	
 	
 	public LoginPage(WebDriver driver) {
 		this.driver = driver;
@@ -56,7 +58,7 @@ public class LoginPage {
 		eleutil.waitForElementVisibility(username, SHORT_TIMEOUT_TIME).sendKeys(email);
 		eleutil.doSendKeys(password, pwd);
 		eleutil.doClick(loginbtn);
-	
+		eleutil.waitForElementVisibility(logoutLinkInMyAccount, MEDIUM_TIMEOUT_TIME);
 		
 		return new AccountPage(driver);
 	
@@ -64,7 +66,7 @@ public class LoginPage {
 	@Step("Navigating to the registration page..")
 	public RegistrationPage doRegisterUserAccount() {
 		eleutil.ClickWithWait(registerButton, SHORT_TIMEOUT_TIME);
-		eleutil.waitForElementVisibility(logoutLinkInMyAccount, MEDIUM_TIMEOUT_TIME);
+		eleutil.waitForElementVisibility(registerMsg, MEDIUM_TIMEOUT_TIME);
 		return new RegistrationPage(driver);
 		
 	}
