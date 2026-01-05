@@ -21,7 +21,6 @@
 		</classes>
 	</test>
 
-
 	<test name="Account Page Test_firefox105.0">
 		<parameter name="browser" value="firefox" />
 		<parameter name="browserVersion" value="105.0" />
